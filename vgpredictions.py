@@ -232,4 +232,18 @@ print(f"{'Dummy (media)':<22}{r2_dummy_log:>10.4f}{mae_dummy_orig:>10.4f}")
 print(f"{'Linear Regression':<22}{r2_lr_log:>10.4f}{mae_lr_orig:>10.4f}")
 print(f"{'Random Forest (test)':<22}{0.2035:>10.4f}{0.4852:>10.4f}")  # tus valores previos
 print(f"{'Random Forest (CV)':<22}{scores_rf_cv.mean():>10.4f}{'—':>10}")
-print("=" * 50)
+print("=" * 50) 
+
+gta = df[df["Name"].str.contains("Grand Theft Auto V", case=False, na=False)]
+print(gta[["Name", "Platform", "Year", "Genre", "Publisher", "Global_Sales"]])
+
+gta6_proxy = pd.DataFrame([{
+    "Platform":  "PS3",
+    "Year":      2013,
+    "Genre":     "Action",
+    "Publisher": "Take-Two Interactive"
+}])
+
+pred_log = modelo_lr.predict(gta6_proxy)[0]
+pred_millones = np.expm1(pred_log)
+print(f"Predicción (proxy PS4/2020): {pred_millones:.2f} millones")
