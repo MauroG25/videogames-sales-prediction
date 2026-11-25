@@ -246,4 +246,4 @@ gta6_proxy = pd.DataFrame([{
 
 pred_log = modelo_lr.predict(gta6_proxy)[0]
 pred_millones = np.expm1(pred_log)
-print(f"Predicción (proxy PS4/2020): {pred_millones:.2f} millones")
+print(f"Predicción (proxy PS4/2020): {pred_millones:.2f} millones") #para mantener la racha
